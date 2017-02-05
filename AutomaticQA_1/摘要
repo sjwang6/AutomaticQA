@@ -1,0 +1,45 @@
+一、倒计时
+1.
+<script type="text/javascript">
+    var i = 3; 
+    var intervalid; 
+    intervalid = setInterval("fun()", 1000); 
+    function fun() { 
+        if (i == 0) { 
+	        window.location.href = "login"; 
+	        clearInterval(intervalid); 
+        } 
+        document.getElementById("mes").innerHTML = i; 
+        i--; 
+    } 
+</script>
+$('#userCue').html("<font color='green'><b>x验证通过x</b><span id='mes'>3</span> 秒钟后进入页面！</font>");
+
+2.
+/**  
+ * 实现倒计时  
+ */  
+function timeOut() {  
+	var wait = 3;
+    if(wait != 0) { 
+    	setInterval(function() {  //函数没进来
+            $("#mes").text(--wait);
+            timeOut();  
+        }, 1000);  
+    }  
+}  
+$('#userCue').html("<font color='green'><b>x验证通过x</b><span id='mes'>3</span> 秒钟后进入页面！</font>");
+
+二、停顿函数
+setTimeout(function(){ //停顿函数
+	window.close(); 
+	$('#regUser').submit(); //停顿完成后要执行的函数
+},2000);
+
+三、weather数据插入数据库，按特定的位置来插入数据
+1，当数据库中的weatherDate是以顺序排序的时候( weatherId缺少编号为1,8,15,22...) 
+此时 weatherUtil中的getWeatherInfoByListAndNum方法  写setWeatherId(7 * (area.getAreaId() - 1) + i + 1)
+
+2.1，当数据库中的weatherDate是以倒序排序的时候( weatherId缺少编号为7,14,21,28...) 
+此时 weatherUtil中的getWeatherInfoByListAndNum方法  写setWeatherId(7 * (area.getAreaId()) - i)
+

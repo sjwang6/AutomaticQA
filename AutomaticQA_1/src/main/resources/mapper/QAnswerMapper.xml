@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiit.graduationproject.dao.QAnswerDao">
+	<resultMap type="com.aiit.graduationproject.entity.QAnswer" id="QAnswerMap">
+		<id column="id" property="id"/>
+		<result column="questionAnswerId" property="questionAnswerId"/>
+		<result column="question" property="question"/>
+		<result column="answer" property="answer"/>
+	</resultMap>
+	<!-- 批量存入 -->
+	<insert id="batchAddQAnswer" parameterType="java.util.List">
+		INSERT INTO tb_question_answer (
+			tb_question_answer.questionAnswerId,tb_question_answer.question,tb_question_answer.answer
+		) 
+		VALUES
+		<foreach collection="qAnswers" index="index" item="item" separator=",">
+		(
+			#{item.questionAnswerId},#{item.question},#{item.answer}
+		)
+		</foreach>
+	</insert>
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiit.graduationproject.dao.UserDao">
+	<resultMap type="com.aiit.graduationproject.entity.User" id="userMap">
+			<id column="id" property="id"/>
+			<result column="userId" property="userId"/>
+			<result column="userName" property="userName"/>
+			<result column="userSex" property="userSex"/>
+			<result column="userAge" property="userAge"/>
+			<result column="userPassword" property="userPassword"/>
+			<result column="userEmail" property="userEmail"/>
+			<result column="userAddress" property="userAddress"/>
+	</resultMap>
+	
+	<!-- 根据姓名和密码获取信息 -->
+	<select id="findUserByNameAndPwd" parameterType="map" resultMap="userMap">
+		SELECT 
+			userId,userName,userAge,userBrith,userSex,userPassword,userEmail,userAddress 
+		FROM 
+			tb_user 
+		WHERE 
+			userName=#{userName}
+		AND 
+			userPassword=#{userPassword}
+	</select>
+	
+	<!-- 根据姓名获取信息 -->
+	<select id="findUserByName" parameterType="string" resultMap="userMap">
+		SELECT 
+			userId,userName,userAge,userBrith,userSex,userPassword,userEmail,userAddress 
+		FROM 
+			tb_user 
+		WHERE 
+			userName=#{userName}
+	</select>
+
+</mapper>

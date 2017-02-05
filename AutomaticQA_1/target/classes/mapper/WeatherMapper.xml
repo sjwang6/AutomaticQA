@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiit.graduationproject.dao.WeatherDao">
+	<resultMap type="com.aiit.graduationproject.entity.Weather" id="weatherMap">
+			<id column="id" property="id"/>
+			<result column="weatherId" property="weatherId"/>
+			<result column="weatherDate" property="weatherDate"/>
+			<result column="weatherWind" property="weatherWind"/>
+			<result column="weatherPhenomenon" property="weatherPhenomenon"/>
+			<result column="weatherBigTemperature" property="weatherBigTemperature"/>
+			<result column="weatherSmallTemperature" property="weatherSmallTemperature"/>
+			<result column="weatherWindRun" property="weatherWindRun"/>
+			<result column="fkAreaId" property="fkAreaId"/>
+	</resultMap>
+	<!-- 批量插入地区数据信息 -->
+	<insert id="batchAddWeatherInfo" parameterType="java.util.List">
+		INSERT INTO tb_weather (
+			tb_weather.weatherId,
+			tb_weather.weatherDate,tb_weather.weatherWind,
+			tb_weather.weatherPhenomenon,tb_weather.weatherBigTemperature,
+			tb_weather.weatherSmallTemperature,tb_weather.weatherWindRun,
+			tb_weather.fkAreaId
+		) 
+		VALUES
+		<foreach collection="weatherList" index="index" item="item" separator=",">
+		(
+			#{item.weatherId},
+			#{item.weatherDate},#{item.weatherWind},#{item.weatherPhenomenon},
+			#{item.weatherBigTemperature},#{item.weatherSmallTemperature},
+			#{item.weatherWindRun},#{item.fkAreaId}
+		)
+		</foreach>
+	</insert>
+	<!-- 清空表 -->
+	<update id="truncateTable" parameterType="String">
+		TRUNCATE TABLE ${tableName}
+	</update>
+	<!-- 查看所有信息 -->
+	<select id="findWeatherAllByPage" resultMap="weatherMap" parameterType="map">
+		SELECT 
+			weatherId,weatherDate,weatherWind,weatherPhenomenon,
+			weatherBigTemperature,weatherSmallTemperature,weatherWindRun,fkAreaId
+ 		FROM 
+ 			tb_weather,tb_area
+		WHERE 
+			tb_area.areaId=tb_weather.fkAreaId LIMIT #{pageNum},#{pageSize}
+	</select>
+	<!-- 查询天气表 的日期和地区外键 -->
+	<select id="findWeatherDateAndFkAreaId" resultMap="weatherMap">
+		SELECT 
+			weatherId,weatherDate,fkAreaId 
+		FROM 
+			tb_weather
+	</select>
+	
+	<!-- 根据天气编号删除天气信息 -->
+	<delete id="deleteWeatherByWeatherId">
+		DELETE FROM 
+			tb_weather 
+		WHERE 
+			weatherId=#{weatherId}
+	</delete>
+	
+	<!-- 根据地区编号查看信息是否存在 -->
+	<select id="findWeatherByAreaId" parameterType="int" resultMap="weatherMap">
+		SELECT 
+			weatherId,weatherDate,weatherWind,weatherPhenomenon,
+			weatherBigTemperature,weatherSmallTemperature,weatherWindRun,fkAreaId
+ 		FROM 
+ 			tb_weather 
+ 		WHERE 
+ 			tb_weather.fkAreaId=#{areaId}
+	</select>
+</mapper>

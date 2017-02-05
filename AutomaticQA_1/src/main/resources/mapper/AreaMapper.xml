@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aiit.graduationproject.dao.AreaDao">
+	<resultMap type="com.aiit.graduationproject.entity.Area" id="areaMap">
+			<id column="id" property="id"/>
+			<result column="areaId" property="areaId"/>
+			<result column="areaUrl" property="areaUrl"/>
+			<result column="areaName" property="areaName"/>
+	</resultMap>
+	<!-- 批量插入地区数据信息 -->
+	<insert id="batchAddAreaInfo" parameterType="java.util.List">
+		INSERT INTO tb_area (
+			tb_area.areaName,tb_area.areaUrl
+		) 
+		VALUES
+		<foreach collection="areaList" index="index" item="item" separator=",">
+		(
+			#{item.areaName},#{item.areaUrl}
+		)
+		</foreach>
+	</insert>
+	<!-- 清空表 -->
+	<update id="truncateTable" parameterType="String">
+		TRUNCATE TABLE ${tableName}
+	</update>
+	<!-- 查询地区的所有信息 -->
+	<select id="findAllArea" resultMap="areaMap">
+		SELECT tb_area.areaId,tb_area.areaName,tb_area.areaUrl FROM tb_area 
+	</select>
+	
+	<!-- 根据位置查询地区的所有信息 -->
+	<select id="findAreaByIndexAndLastPos" resultMap="areaMap" parameterType="Integer">
+		SELECT tb_area.areaId,tb_area.areaName,tb_area.areaUrl FROM tb_area 
+		WHERE tb_area.areaId BETWEEN #{indexPos} AND #{lastPos}
+	</select>
+</mapper>
