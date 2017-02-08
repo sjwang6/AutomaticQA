@@ -39,17 +39,19 @@ function checkUser(){
 		url:"toCheckUser",
 		dataType:"json",
 		success:function (data){
-			if(data != 1){
-				$.messager.confirm("提示","该用户名已存在，请重新输入！",function(t){
-					if(t){
-						$("input[name='user']").focus(); //获取焦点
-					}
-				});
+			alert(data);
+			if(data == 0){
+				$.messager.alert("提示","该用户名已存在，请重新输入！","warning");
+				$("input[name='user']").focus(); //获取焦点
 			}
 		}
 	});
 }
 
+//判断出生日期是否超出今天
+function checkBrith(){
+	
+}
 //根据参数名获得该参数 pname等于想要的参数名 
 function getParam(pname) { 
     var params = location.search.substr(1); // 获取参数 平且去掉？ 

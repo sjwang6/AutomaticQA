@@ -31,3 +31,13 @@ function getAreaInfo(){
 		}
 	});
 }
+
+/**
+ * 更新密码
+ */
+function updatePwd(){
+	$("#mainForm").hide();
+	$(".main").append("hello had hide !");
+	window.location.href = "toUpdatePwd?userPassword=${User.getUserPassword()}";
+	
+}

@@ -72,8 +72,8 @@
           		<h4 class="M5"><span></span>设置</h4>
           		<div class="list-item none">
 		            <a href=''>用户信息</a>
-		            <a href=''>修改密码</a>
-		            <a href=''>退出</a>
+		            <a href='javascript:updatePwd();'>修改密码</a>
+		            <a href='toLoginOut'>退出</a>
 	          	</div>
 	        </li>
   		</ul>

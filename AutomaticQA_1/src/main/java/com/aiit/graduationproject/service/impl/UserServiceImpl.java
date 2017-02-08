@@ -48,4 +48,12 @@ public class UserServiceImpl implements UserService {
 		return userDao.findUserByName(userName);
 	}
 
+	/**
+	 * @see com.aiit.graduationproject.service.UserService#addUser(com.aiit.graduationproject.entity.User)
+	 */
+	public void addUser(User user) {
+
+		userDao.addUser(user);
+	}
+
 }

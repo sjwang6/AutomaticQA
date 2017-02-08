@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+/*footer*/
+.sprite1{background:url("../img/index/sprite1.png") no-repeat;}
+.footer{background-color: #404042;padding-top: 64px;text-align: center;}
+.footer p{text-align: center;}
+.footer a:hover{text-decoration: underline;}
+.footer .wapper{width: 1010px; margin: 0 auto;}
+.footer .sns{height: 22px;padding-bottom:20px; }
+.footer .sns .code{position: absolute;width: 120px; height: 120px;bottom: -44px;right: -174px;background: url("../img/index/index_qr.png") no-repeat;display:none;}
+.footer .sns .index_foot_icon04:hover .code{display: block}
+.footer .sns span{display: inline-block;margin-right: 16px;cursor: pointer;}
+.footer .log-check{font-size: 14px; height: 14px;padding-bottom: 16px;}
+.footer .log-check a{margin-right: 34px;letter-spacing: 2px;color: #fff;}
+.footer .msg{height: 19px;line-height: 19px;padding-bottom: 34px;}
+.footer .msg span{display: inline-block;text-indent:28px;margin-right:38px;width: auto;font-size: 12px; color: #fff; letter-spacing: 2px; }
+.footer .part{font-size: 12px;padding-bottom: 24px; line-height: 18px;}
+.footer .part a{margin-right:11px;width: auto;color: #fff;}
+.footer .permission{color: #999;font-size: 12px;height: 12px;padding-bottom:22px; }
+.footer .about{height: 18px; line-height: 18px;padding-bottom: 58px;}
+.footer .about a{font-size: 12px;color: #fff;margin: 0 20px;}
+.footer .about span{width: 1px; height: 18px; display: inline-block;background: #fff;position: relative;top: 4px;}
+.footer .index_foot_icon02{height:22px;width:22px;background-position:0 -144px;}
+.footer .index_foot_icon03{height:20px;width:25px;background-position:0 -166px;}
+.footer .index_foot_icon06{height:19px;width:19px;background-position:0 -71px;}
+.footer .index_foot_icon07{height:19px;width:19px;background-position:0 -90px;}
+.footer .index_foot_icon05{height:19px;width:19px;background-position:0 -52px;}
+.footer .index_foot_icon01{height:21px;width:11px;background-position:0 -5px;}
+.footer .index_foot_icon04{height:19px;width:26px;background-position:0 -198px; position: relative;}

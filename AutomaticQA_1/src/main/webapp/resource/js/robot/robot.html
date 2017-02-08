@@ -1,0 +1,690 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>虚拟机器人-体验</title>
+<meta name="Author" content="TURING Team"/>
+<meta name="Copyright" content="TURING"/>
+<meta name="keywords" content="图灵机器人,智能机器人,turingos,图灵os,聊天机器人,机器人,智能,人工智能,机器人操作系统,AI,自动回复"/>
+<meta name="description" content="图灵机器人平台，基于自然语言处理、知识库和云计算等技术，为广大开发者、合作伙伴提供的一系列智能语义处理能力（包括语义理解、智能问答、知识库对接等）的服务平台。可以让所有专业和非专业的IT人员快速开发出智能机器人、聊天机器人，实现企业客服系统的自动回复。"/>
+    <link rel="icon" href="404.png" type="image/x-icon"/>
+    <link href="reset.css" rel="stylesheet" type="text/css"/>
+    <link href="header.css" rel="stylesheet" type="text/css"/>
+    <link href="footer.css" rel="stylesheet" type="text/css"/>
+    <link href="experience.css" rel="stylesheet" type="text/css"/>
+    <script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="browser.js"></script>
+<script src="layer.js"></script>
+<div class="header">
+    <div class="logo"><a href="/"><img src="index_logo.png" alt=""></a></div>
+    <div class="by"><img src="by.png" alt=""></div>
+    <a href="/register/index.jhtml" class="register">注册</a>
+    <a href="/login/index.jhtml" class="login">登陆</a>
+    <ul class="mainMenu">
+        <li>
+            <a href="/">
+                <div class="menu ">首页</div>
+            </a>
+        </li>
+        <li>
+            <div class="menu active spe" style="+position: relative;">
+                产品<span class="toDown sprite1"></span>
+                <div class="selectBox clearfix">
+                    <div class="l">
+                        <p class="tit">核心产品</p>
+                        <a href="/os/index.jhtml?nav=prod" class="con">Turing OS</a>
+                        <a href="/products/pro_turing_robot.jhtml?nav=prod" class="con">图灵机器人</a>
+                    </div>
+                    <div class="r">
+                        <p class="tit">应用场景</p>
+                        <a href="/products/pro_smart_home.jhtml?nav=prod" class="con">智能家居</a>
+                        <a href="/products/pro_intel_service.jhtml?nav=prod" class="con">智能客服</a>
+                        <a href="/products/pro_smart_watch.jhtml?nav=prod" class="con active">智能手表</a>
+                        <a href="/products/pro_intel_vehicle.jhtml?nav=prod" class="con">智能车载</a>
+                        <a href="/products/pro_virtual_robot.jhtml?nav=prod" class="con">虚拟机器人</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="/experience/experience.jhtml?nav=exp">
+                <div class="menu">体验</div>
+            </a>
+        </li>
+        <li>
+            <a href="/help/help_center.jhtml?nav=doc">
+                <div class="menu">帮助中心</div>
+            </a>
+        </li>
+        <li>
+            <a href="http://bbs.tuling123.com">
+                <div class="menu">社区</div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="toTop" style="display: none;">
+    <div class="toT sprite1 index_back "><span class="sprite1 index_back01 index_back02"></span></div>
+    <div class="opinions1">关注
+        <div class="opImg">
+            <p class="p1_op">关注图灵机器人官方微信公众号</p>
+            <p>获取最新产品资讯和科技圈酷闻</p>
+        </div>
+    </div>
+    <div class="opinions">反馈</div>
+</div>
+<form id="form_op" action="">
+    <div class="bgFeedback_z" style="display: none;">
+        <div class="opinion">
+            <span class="delet"></span>
+            <p class="tit_op">意见反馈</p>
+            <p class="wel_op">您好，欢迎您给我们提产品的使用感受和建议！</p>
+            <div class="clearfix">
+                <span class="l_op"><i>*</i>标题</span>
+                <input type="text" class="bt_op">
+                <span class="wrong">长度不超过20个字</span>
+            </div>
+            <div class="clearfix" >
+                <span class="l_op l1_op">标签</span>
+                <span class="pian_op active">使用流程篇</span>
+                <span class="pian_op">知识库功能篇</span>
+                <span class="pian_op" style="margin-right: 100px;">机器人设置篇</span>
+                <span class="pian_op" style="margin-left: 100px;">应用场景篇</span>
+                <span class="pian_op">其他</span>
+                <input type="hidden" value="1" name="label" class="hi_ap">
+            </div>
+            <div class="clearfix line_op" style="margin-top: -16px;">
+                <span class="l_op"><i>*</i>内容</span>
+                <textarea name="" id=""></textarea>
+                <span class="wrong wrong1">长度不超过20个字</span>
+            </div>
+            <p class="wel_op">联系方式</p>
+            <div class="clearfix">
+                <span class="l_op">手机</span>
+                <input type="text" class="tel_op">
+                <span class="wrong">请输入正确的手机号</span>
+            </div>
+            <div class="clearfix">
+                <span class="l_op">邮箱</span>
+                <input type="text" class="email_op">
+                <span class="wrong">请输入正确的邮箱</span>
+            </div>
+            <div class="sub_op">提交</div>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    var loginStatus = false;
+    if ("" == "success") {
+        layer.msg("", {icon: 1})
+    } else if ("" == "error") {
+        layer.msg("", {icon: 2})
+    } else if ("" == "warn") {
+        layer.msg("", {icon: 7})
+    }
+
+    window.onload = function () {
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+        var col = getQueryString('nav');
+        if (col == null) {
+            return;
+        } else if (col == 'prod') {
+            $('.menu').eq(1).addClass('special');
+        } else if (col == 'exp') {
+            $('.menu').eq(2).addClass('special');
+        } else if (col == 'doc') {
+            $('.menu').eq(3).addClass('special');
+        } else if (col == 'no') {
+            $('.menu').removeClass('special')
+        }
+    }
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 200) {
+            $('.toTop').show();
+        } else {
+            $('.toTop').hide();
+        }
+    })
+    $('.toT').click(function () {
+        var timer1 = null;
+        timer1 = setInterval(function () {
+            var scrollT = $(window).scrollTop();
+            if (scrollT <= 70) {
+                scrollT == 70
+                clearInterval(timer1)
+            }
+            $(window).scrollTop(scrollT - 70);
+        }, 16)
+    })
+
+    $('.pian_op').click(function(){
+        $('.pian_op').removeClass('active');
+        $(this).addClass('active');
+        $('.hi_ap').val( $(this).index() )
+    })
+
+    $('.hi_ap').val('1');
+    var bt_oponoff = false;
+    var te_oponoff = false;
+    function gz(obj,num,str){
+        var val = obj.val().trim();
+        var onOff;
+        if(val==''){
+            obj.next().html(str).show();
+            onOff = false;
+        }else if(val.length>num){
+            obj.next().html('长度不超过'+num+'个字').show();
+            onOff = false;
+        }else{
+            obj.next().hide();
+            onOff = true;
+        }
+        return onOff;
+    }
+    $('.bt_op').bind('input propertychange', function() {
+        bt_oponoff = gz($(this),20,'请输入标题');
+    });
+    $('textarea').bind('input propertychange', function() {
+        te_oponoff = gz($(this),200,'请输入内容');
+    });
+    $('.bt_op').blur(function(){
+        bt_oponoff = gz($(this),20,'请输入标题');
+    })
+    $('textarea').blur(function(){
+        te_oponoff = gz($(this),200,'请输入内容');
+    })
+    var tel_oponoff = true;
+    $('.tel_op').blur(function(){
+        var val = $.trim( $(this).val() );
+        var regexp =  /^1[0-9]{10}$/;
+        if(val==''){
+            $(this).next().hide();
+            tel_oponoff = true;
+        }else if(!regexp.test( val )){
+            $(this).next().show();
+            tel_oponoff = false;
+        }else{
+            $(this).next().hide();
+            tel_oponoff = true;
+        }
+    })
+    var email_oponoff = true;
+    $('.email_op').blur(function(){
+        var val = $.trim( $(this).val() );
+        var regexp = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        if(val==''){
+            $(this).next().hide();
+            email_oponoff = true;
+        }else if(!regexp.test( val )){
+            $(this).next().show();
+            email_oponoff = false;
+        }else{
+            $(this).next().hide();
+            email_oponoff = true;
+        }
+    })
+    var sub_oponoff = true;
+    $('.sub_op').click(function(){
+        $('.bt_op').blur();
+        $('textarea').blur();
+        $('.tel_op').blur();
+        $('.email_op').blur();
+        if(bt_oponoff && te_oponoff && tel_oponoff && email_oponoff && sub_oponoff){
+            sub_oponoff = false;
+            var tit = $('.bt_op').val().trim();
+            var con = $('textarea').val().trim();
+            var label = $('.hi_ap').val();
+            var tel = $('.tel_op').val().trim();
+            var email = $('.email_op').val().trim();
+
+            $.ajax({
+                url: "/feedback/index.jhtml",
+                type: "POST",
+                dataType: "json",
+                data: {"title":tit, "content":con, "label":label, "mobile":tel, "email":email},
+                async: true,
+                cache: false,
+                success: function (data) {
+                    if (data.type == "success") {
+                        layer.msg("您的反馈提交成功！", {"icon":1});
+                        $('.bgFeedback_z').hide();
+                    } else {
+                        layer.msg("您的反馈提交失败，请重试", {"icon":2});
+                    }
+                    sub_oponoff = true;
+                }
+            });
+        }
+    })
+    //意见反馈按钮，点击弹出
+    $('.opinions').click(function () {
+        $('.bgFeedback_z').show();
+        $('.bt_op').val('');
+        $('textarea').val('');
+    })
+    //弹出层右上角关闭按钮
+    $('.bgFeedback_z .delet').click(function () {
+        $('.bgFeedback_z').hide();
+    })
+    /*//  意见反馈
+    function sideFeedback_z() {
+
+        //弹出层右上角关闭按钮
+        $('.bgFeedback_z .delet').click(function () {
+            $('.bgFeedback_z').hide();
+        })
+        //弹出层登录按钮
+        var onOff = true;
+        $('.sub').click(function () {
+            if (loginStatus && onOff) {
+                var $val = $('.opinion textarea').val();
+                val = $.trim($val);
+                //发送反馈
+                if (val != '') {
+                    onOff = false;
+                    var feedbackSendStatus = false;//发送成功标识
+
+
+
+                }
+            }
+
+        })
+    }
+    ;
+    sideFeedback_z();*/
+
+</script>
+<div style="display: none;">
+    <script src="https://s96.cnzz.com/z_stat.php?id=1000214860&web_id=1000214860" language="JavaScript" async="async"></script>
+</div>
+<div class="bg_ex" style="display: none">
+    <div class="con">
+        <div class="close"></div>
+        <p class="tit">你可以这样问我</p>
+        <p class="btm1"></p>
+        <p class="btm2"></p>
+        <p class="btm3"></p>
+    </div>
+</div>
+<div class="wapper_ex">
+    <div class="con">
+        <div class="wap clearfix">
+            <div class="message">
+                <div class="top">
+                    <span></span>
+                    <p>图图</p>
+                </div>
+                <div class="btm">
+                    <p>喜欢的事</p>
+                    <div class="clearfix">
+                        <span class="col1">爱聊天</span>
+                        <span class="active col2">见义勇为</span>
+                        <span class="col3">工作狂</span>
+                        <span class="active col4">唱歌</span>
+                    </div>
+                    <p>讨厌的事</p>
+                    <div class="clearfix">
+                        <span class="col1">被冤枉</span>
+                        <span class="active col2">无所事事</span>
+                        <span class="col3">没钱花</span>
+                        <span class="active col4">吵架</span>
+                    </div>
+                </div>
+            </div>
+            <div class="dialogue">
+                <div class="roll"><span class="point"></span></div>
+                <div class="displayArea">
+                    <div class="diswap">
+                        <div class="rotWord clearfix"> <span></span> <p id="member"><i></i></p></div>
+                    </div>
+                </div>
+                <div class="writeArea clearfix">
+                    <input type="text" maxlength="200" placeholder="刘亦菲的妈妈的妈妈是谁？">
+                    <span>发 送</span>
+                </div>
+                <div class="bdsharebuttonbox" data-tag="share_1" id="share">
+                    <em class="sp">分享</em>
+                    <a class="sp1" data-cmd="weixin" ></a>
+                    <a class="sp2" data-cmd="tsina"></a>
+                    <a class="sp3" data-cmd="qzone"></a>
+                    <em class="sp4">接入图灵机器人</em>
+                </div>
+                <script>
+                    window._bd_share_config = {
+                        common : {
+                            bdText : '每一款产品，都可以接入一个智能的虚拟机器人',
+                            bdDesc : '每一款产品，都可以接入一个智能的虚拟机器人',
+                            bdUrl : 'http://www.tuling123.com/experience/exp_virtual_robot.jhtml',
+                            bdPic : 'http://www.tuling123.com/resources/web/v4/img/index/index_logo.png'
+                        },
+                        share : [{
+                            "bdSize" : 16
+                        }],
+                        image : [{
+                            viewType : 'list',
+                            viewPos : 'top',
+                            viewColor : 'black',
+                        }]
+                    }
+                    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+                </script>
+            </div>
+            <div class="example">
+                <ul class="clearfix">
+                    <li value1="你好，你是美女么？" value2="挖掘机技术哪家强？">
+                        <span class="spic1"></span>
+                        <p>聊天</p>
+                    </li>
+                    <li value1="讲个笑话" value2="冷笑话">
+                        <span class="spic2"></span>
+                        <p>笑话</p>
+                    </li>
+                    <li value1="刘亦菲的图片">
+                        <span class="spic3"></span>
+                        <p>图片</p>
+                    </li>
+                    <li value1="北京今天的天气" value2="北京今天的空气质量">
+                        <span class="spic4"></span>
+                        <p>天气</p>
+                    </li>
+                    <li value1="地球到月球的距离" value2="感冒应该怎么办" value3="虎皮鹦鹉吃什么">
+                        <span class="spic5"></span>
+                        <p>问答</p>
+                    </li>
+                    <li value1="百科周杰伦" value2="李连杰的介绍">
+                        <span class="spic6"></span>
+                        <p>百科</p>
+                    </li>
+                    <li value1="讲个故事" value2="讲个白雪公主的故事">
+                        <span class="spic7"></span>
+                        <p>故事</p>
+                    </li>
+                    <li value1="我要看新闻" value2="体育新闻" value3="周杰伦的新闻">
+                        <span class="spic8"></span>
+                        <p>新闻</p>
+                    </li>
+                    <li value1="红烧肉怎么做" value2="辣子鸡丁的菜谱">
+                        <span class="spic9"></span>
+                        <p>菜谱</p>
+                    </li>
+                    <li value1="天蝎座明天的运势" value2="现在是什么星座" value3="今年属牛的运势">
+                        <span class="spic10"></span>
+                        <p>星座</p>
+                    </li>
+                    <li value1="周杰伦这个名字好不好" value2="10086凶吉">
+                        <span class="spic11"></span>
+                        <p>凶吉</p>
+                    </li>
+                    <li value1="3乘以5等于多少" value2="25*25等多少">
+                        <span class="spic12"></span>
+                        <p>计算</p>
+                    </li>
+                    <li value1="顺丰快递">
+                        <span class="spic13"></span>
+                        <p>快递</p>
+                    </li>
+                    <li value1="明天从北京到上海的航班">
+                        <span class="spic14"></span>
+                        <p>飞机</p>
+                    </li>
+                    <li value1="明天从北京到石家庄的火车">
+                        <span class="spic15"></span>
+                        <p>列车</p>
+                    </li>
+                    <li value1="开始成语接龙">
+                        <span class="spic16"></span>
+                        <p>成语接龙</p>
+                    </li>
+
+                </ul>
+                <p class="more">
+                    <a href="/products/pro_virtual_robot.jhtml?nav=prod">了解更多</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="wapper">
+        <div class="sns">
+            <a href="https://www.facebook.com/turingrobot/" target="_blank"><span class="sprite1 index_foot_icon01"></span></a>
+            <a href="http://www.linkedin.com/company/10366133/" target="_blank"><span class="sprite1 index_foot_icon02"></span></a>
+            <a href="https://twitter.com/turing2016/" target="_blank"><span class="sprite1 index_foot_icon03"></span></a>
+            <span class="sprite1 index_foot_icon04"><div class="code"></div></span>
+        </div>
+       <p class="log-check"><a href="/recruitment/index.jhtml" target="_blank" >面试结果查询</a></p>
+        <p class="msg">
+            <span class="mailbox sprite1 index_foot_icon06">邮箱地址: tuling123@uzoo.cn</span>
+            <span class="qq sprite1 index_foot_icon07">QQ技术交流群: 282807984</span>
+        </p>
+        <p class="part">
+                <a href="http://www.haoservice.com/" target="_blank">Haoservice</a>
+                <a href="http://www.apicloud.com/" target="_blank">APICloud</a>
+                <a href="http://xfyun.cn/" target="_blank">讯飞开放平台</a>
+                <a href="http://www.weixinyunduan.com/" target="_blank">微讯云端</a>
+                <a href="http://www.yuntongxun.com/" target="_blank">容联云通讯</a>
+                <a href="http://apistore.baidu.com/" target="_blank">API Store</a>
+                <a href="http://www.rongcloud.cn/" target="_blank">融云即时通讯云</a>
+                <a href="http://cqp.cc/forum.php" target="_blank">酷Q社区</a>
+                <a href="http://www.phpchina.com" target="_blank">PHPChina</a>
+                <a href="http://yuyin.baidu.com/" target="_blank">百度语音</a>
+                <a href="http://www.xiaoweirobot.com/" target="_blank">小微机器人</a>
+                <a href="http://www.jikexueyuan.com/" target="_blank">极客学院</a>
+        </p>
+        <p class="permission">
+            许可证号：京ICP备14018272号&nbsp;&nbsp;&nbsp;&nbsp;备案编号：京公网安备110108020115812号&nbsp;&nbsp;Copyright&nbsp;©&nbsp;2014-2016&nbsp;图灵机器人（雷风）&nbsp;All&nbsp;rights&nbsp;Reserved
+        </p>
+        <p class="about">
+            <a href="/about/contact_us.jhtml?nav=no">联系我们</a>
+        <span></span>
+        <a href="/about/about_us.jhtml?nav=no">关于我们</a>
+        <span></span>
+        <a href="/about/conperative_partner.jhtml?nav=no">合作伙伴</a>
+        <span></span>
+        <a href="/about/friends_link.jhtml?nav=no">友情链接</a>
+        </p>
+    </div>
+</div></body>
+
+<script>
+    if (!window.localStorage.getItem("_userid")) {
+        window.localStorage.setItem("_userid", 'ef236aec-10b0-4ccc-b6d1-c6961aef5176');
+    }
+    var userid = window.localStorage.getItem("_userid");
+
+    function member(){
+        var memArr = ['心理测评上线~从今天起，好玩的趣味测评会不定时推送哦，对我说[测评游戏]玩玩看吧！','你好，最近过得怎么样？','嗨，最近想我没有？[羞涩]','HI，[记忆系统]已上线，从今天起我会牢记您的大名！来试试看吧~','嗨，有什么想对我聊聊么？',];
+        var num = Math.floor(Math.random()*memArr.length);
+        $('#member').html(memArr[num]+'<i></i>')
+    }
+    member()
+    var arrPLace = ['你好呀，想我了吗？','跟我聊聊吧，你可以问我姚明多高？','做什么呢？对我说讲笑话，我就会逗你开心哦','快告诉我天蝎座明天的运势怎么样','给我查查明天北京到上海的航班'];
+    var num = Math.floor(Math.random()*5);
+    $('.writeArea input').attr('placeholder',arrPLace[num]);
+
+    var webTuring = {
+        point:function(){
+            var sum = 0 ;
+            $('.roll span').mousedown(function(ev){
+                var startT = ev.pageY;
+                var t = parseFloat($('.point').css('top')) ;
+                add();
+                $('.wapper_ex').addClass('stop');
+                $(document).mousemove(function(ev){
+                    var moveT = ev.pageY;
+                    var m = t+moveT-startT;
+                    if(m<0){
+                        m = 0;
+                    }
+                    if(m>326){
+                        m = 326;
+                    }
+                    $('.point').css('top',m );
+                    var newM = m/326 *(sum-364);
+                    $('.displayArea').scrollTop(newM);
+                })
+                $(document).mouseup(function(){
+                    $('.wapper_ex').removeClass('stop');
+                    $(document).unbind('mousemove');
+                })
+            })
+            function add(){
+                sum = 0;
+                $('.diswap>div').each(function(){
+                    sum+=$(this).outerHeight(true);
+                })
+            }
+            $('.displayArea').scroll(function(){
+                add();
+                $('.point').css('top', $('.displayArea').scrollTop()/(sum-364)*326 );
+            })
+
+            $('.example li').click(function(){
+                $('.bg_ex').show();
+                $('.btm1').html( $(this).attr('value1')).show();
+                if( $(this).attr('value2') )  $('.btm2').html( $(this).attr('value2')).show();
+                if( $(this).attr('value3') )  $('.btm3').html( $(this).attr('value3')).show();
+            })
+            $('.close').click(function(){
+                $('.bg_ex').hide();
+                $('.btm1').hide();
+                $('.btm2').hide();
+                $('.btm3').hide();
+            })
+            var timerTenMin = null;
+            var memNum = 0;
+            function memberth(){
+                var memArr = ['你是不是无聊了~？做个测评游戏怎么样？准备好了请对我说[测评游戏]！','怎么不说话了~对我说[讲个笑话]，我会逗你开心呢！','亲爱的去哪儿了？','人呢，吃饭去了..?','去睡觉了吧..','楼下的，你怎么看？','喂，你不爱我了吗？','人呢，求搭理！',];
+                var num = Math.floor(Math.random()*memArr.length);
+                return memArr[num];
+            }
+            function timeTenMin(){
+                if(memNum>=3){
+                    return;
+                }
+                clearInterval(timerTenMin);
+                timerTenMin = setInterval(function(){
+                    var yhy = memberth();
+                    $('.diswap').append( '<div class="rotWord clearfix"> <span></span> <p>'+yhy+'<i></i></p></div>' );
+                    memNum++;
+                    if(memNum>=3){
+                        clearInterval(timerTenMin);
+                        return;
+                    }
+                    scrollBtm();
+                },60000)
+            }
+            timeTenMin();
+            $('.bg_ex p:not(.tit)').click(function(){
+                $('.diswap').append( '<div class="mWord clearfix"><span></span><p>'+$(this).html()+'<i></i></p></div>' );
+                scrollBtm();
+                $('.close').click();
+                submitvalues($(this).html());
+                timeTenMin();
+            })
+            $('.writeArea span').click(function(){
+                timeTenMin();
+                var val = $.trim( $('.writeArea input').val() );
+                if(val == ''){
+                    return;
+                }
+                if(val=='绑定'){
+                    $('.diswap').append( '<div class="mWord clearfix"><span></span><p>'+val+'<i></i></p></div>' );
+                    $('.diswap').append( '<div class="rotWord clearfix"> <span></span> <p>'+userid+'<i></i></p></div>' );
+                    $('.writeArea input').val('');
+                    scrollBtm();
+                    return;
+                }
+                $('.writeArea input').attr('placeholder','');
+                $('.diswap').append( '<div class="mWord clearfix"><span></span><p>'+val+'<i></i></p></div>' );
+                scrollBtm();
+                submitvalues(val);
+                $('.writeArea input').val('');
+            })
+            $('.displayArea').mouseover(function(){
+                if(sum>374) $('.roll').show();
+            })
+            $('.displayArea').mouseout(function(){
+                if(sum>374) $('.roll').hide();
+            })
+            $('.roll').mouseover(function(){
+                $('.roll').show();
+            })
+            $(window).keydown(function(event){
+                switch(event.keyCode){
+                    case 13:$('.writeArea span').click();
+                        break;
+                }
+            })
+            function scrollBtm(){
+                add();
+                if(sum-364<0)  return;
+                $('.displayArea').scrollTop(sum-364);
+            }
+            function submitvalues(content){
+               // content = content.replace('+', "%2B");
+               // content = content.replace('&', "%26");
+               // content = content.replace('%', "%25");
+                $.ajax({
+                    url: "/api/product_exper/chat.jhtml",
+                    data: {"info":content,'userid':userid,"_xsrf":''},
+                    type: "POST",
+                    dataType: "xml",
+                    cache: false,
+                    success: function(data) {
+                        var xml = data;
+                        if($(xml).find('MsgType').text() == 'text' ){
+                            var content = $(xml).find("Content").text().replace(/\n/g, "<br>");
+                            if( content.indexOf('#@#')>0 ){
+                                var contentArr = content.split('#@#');
+                                $('.diswap').append( '<div class="rotWord clearfix"> <span></span> <p>'+contentArr[0]+'<i></i></p></div>' );
+                                setTimeout(function(){
+                                    $('.diswap').append( '<div class="rotWord clearfix"> <span></span> <p>'+contentArr[1]+'<i></i></p></div>' );
+                                    scrollBtm();
+                                },300)
+                            }else{
+                                $('.diswap').append( '<div class="rotWord clearfix"> <span></span> <p>'+content+'<i></i></p></div>' );
+                            }
+                        }else if( $(xml).find('MsgType').text() == 'news' ){
+                            if($(xml).find('Articles item PicUrl').eq(1).text() == ''){
+                                if( $(xml).find('Articles item Url').eq(1).text() == '' ){
+                                    $('.diswap').append('<div class="rotWord1 clearfix"> <span></span> <div class="findMsg"> <i></i> <div class="main"><div class="info"> <a href="javascript:;"> <div class="make">'+$(xml).find("item").eq(0).find("Title").text()+'-'+$(xml).find("item").eq(0).find("Description").text()+'</div> </a></div> <div class="line"></div> <div class="info"> <a href="javascript:;"> <div class="make">'+$(xml).find("item").eq(1).find("Title").text()+'-'+$(xml).find("item").eq(1).find("Description").text()+'</div> </a></div> <div class="line"></div> <div class="info"> <a href="javascript:;"> <div class="make">'+$(xml).find("item").eq(2).find("Title").text()+'-'+$(xml).find("item").eq(2).find("Description").text()+'</div> </a> </div></div> </div> </div>')
+                                }else{
+                                    $('.diswap').append('<div class="rotWord1 clearfix"> <span></span> <div class="findMsg"> <i></i> <div class="main"><div class="info"> <a href="'+$(xml).find("item").eq(0).find("Url").text()+'"> <div class="make">'+$(xml).find("item").eq(0).find("Title").text()+'-'+$(xml).find("item").eq(0).find("Description").text()+'-'+$(xml).find("item").eq(0).find("Description").text()+'</div> </a></div> <div class="line"></div><div class="info"> <a href="'+$(xml).find("item").eq(1).find("Url").text()+'"> <div class="make">'+$(xml).find("item").eq(1).find("Title").text()+'-'+$(xml).find("item").eq(1).find("Description").text()+'</div> </a></div> <div class="line"></div> <div class="info"> <a href="'+$(xml).find("item").eq(2).find("Url").text()+'"> <div class="make">'+$(xml).find("item").eq(2).find("Title").text()+'-'+$(xml).find("item").eq(2).find("Description").text()+'</div> </a></div></div> </div> </div>')
+                                }
+                            }else{
+                                if( $(xml).find('Articles item Url').eq(1).text() == '' ){
+                                    $('.diswap').append('<div class="rotWord1 clearfix"> <span></span> <div class="findMsg"> <i></i> <div class="main"> <div class="pic"><p>'+ $(xml).find("item").eq(0).find("Title").text() +'</p><a href="'+$(xml).find("item").eq(0).find("Url").text()+'"><img src="'+$(xml).find("item").eq(0).find("PicUrl").text()+'" alt=""></a> </div> <div class="info"> <a href="javascript:;"> <div class="make">'+$(xml).find("item").eq(1).find("Title").text()+'</div> </a><a href="javascript:;"><img src="'+$(xml).find("item").eq(1).find("PicUrl").text()+'" alt=""></a> </div> <div class="line"></div> <div class="info"> <a href="javascript:;"> <div class="make">'+$(xml).find("item").eq(2).find("Title").text()+'</div> </a> <a href="javascript:;"><img src="'+$(xml).find("item").eq(2).find("PicUrl").text()+'" alt=""></a> </div></div> </div> </div>')
+                                }else{
+                                    $('.diswap').append('<div class="rotWord1 clearfix"> <span></span> <div class="findMsg"> <i></i> <div class="main"> <div class="pic"><p>'+ $(xml).find("item").eq(0).find("Title").text() +'</p> <a href="'+$(xml).find("item").eq(0).find("Url").text()+'"><img src="'+$(xml).find("item").eq(0).find("PicUrl").text()+'" alt=""></a> </div> <div class="info"> <a href="'+$(xml).find("item").eq(1).find("Url").text()+'"> <div class="make">'+$(xml).find("item").eq(1).find("Title").text()+'</div> </a><a href="'+$(xml).find("item").eq(1).find("Url").text()+'"><img src="'+$(xml).find("item").eq(1).find("PicUrl").text()+'" alt=""></a> </div> <div class="line"></div> <div class="info"> <a href="'+$(xml).find("item").eq(2).find("Url").text()+'"> <div class="make">'+$(xml).find("item").eq(2).find("Title").text()+'</div> </a> <a href="'+$(xml).find("item").eq(2).find("Url").text()+'"><img src="'+$(xml).find("item").eq(2).find("PicUrl").text()+'" alt=""></a> </div></div> </div> </div>')
+                                }
+                            }
+                        }
+                        $('.diswap a').attr("target","_blank");
+                        scrollBtm();
+                    }
+                });
+            }
+            return this;
+        }
+    }
+
+    webTuring.point();
+    $('#share .sp4').click(function(){
+        window.location = '/member/center/index.jhtml';
+    })
+</script>
+</html>

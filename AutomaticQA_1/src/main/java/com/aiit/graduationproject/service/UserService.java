@@ -43,4 +43,15 @@ public interface UserService {
 	 * @return
 	 */
 	public List<User> findUserByName(String userName);
+
+	/**
+	 * 添加用户
+	 * <p>
+	 * <code>addUser</code>
+	 * </p>
+	 * 
+	 * @author sjwang6
+	 * @param user
+	 */
+	public void addUser(User user);
 }

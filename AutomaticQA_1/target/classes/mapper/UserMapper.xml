@@ -33,5 +33,15 @@
 		WHERE 
 			userName=#{userName}
 	</select>
+	
+	<!-- 添加用户 -->
+	<insert id="addUser" parameterType="User">
+		INSERT INTO tb_user 
+			userName,userAge,userBrith,userSex,userPassword,userEmail,userAddress 
+		VALUSE(
+			#{userName},#{userAge},#{userBrith},#{userSex},
+			#{userPassword},#{userEmail},#{userAddress}
+		) 
+	</insert>
 
 </mapper>

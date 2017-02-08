@@ -21,6 +21,7 @@ import com.aiit.graduationproject.entity.Weather;
 import com.aiit.graduationproject.service.AreaService;
 import com.aiit.graduationproject.service.WeatherService;
 import com.aiit.graduationproject.utils.DateUtil;
+import com.aiit.graduationproject.utils.PageUtil;
 import com.aiit.graduationproject.utils.StringUtils;
 import com.aiit.graduationproject.utils.WeatherUtil;
 
@@ -67,18 +68,10 @@ public class WeatherController {
 	public String ShowAllWeatherInfo(HttpServletRequest request, Map map) {
 		List<Weather> alits = weatherService.findWeatherDateAndFkAreaId();
 		int Num = StringUtils.StringCastInteger(request.getParameter("currentPage"));
-		int pageNum, pageSize;
-		if (request.getParameter("currentPage") == null || request.getParameter("currentPage") == "") {
-			pageNum = 1;
-			pageSize = 10;
-		} else {
-			pageNum = Num;
-			pageSize = 10;
-		}
-		int endNum = (pageNum - 1) * pageSize;
-		List<Weather> allList = weatherService.findWeatherAllByPage(endNum, pageSize);
+		int[] pageview = PageUtil.pageViews(request.getParameter("currentPage"), Num);
+		List<Weather> allList = weatherService.findWeatherAllByPage(pageview[0], pageview[1]);
 		map.put("size", alits.size());
-		map.put("currentPage", pageNum);
+		map.put("currentPage", pageview[2]);
 		map.put("totalPage", (alits.size() / 10) % 2 == 0 ? (alits.size() / 10) : (alits.size() / 10) + 1);
 		map.put("All_Weather_List", allList);
 		return "backstage/weather";

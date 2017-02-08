@@ -48,4 +48,15 @@ public interface UserDao {
 	 */
 	public List<User> findUserByName(@Param("userName") String userName);
 
+	/**
+	 * 添加用户
+	 * <p>
+	 * <code>addUser</code>
+	 * </p>
+	 * 
+	 * @author sjwang6
+	 * @param user
+	 */
+	public void addUser(@Param("user") User user);
+
 }

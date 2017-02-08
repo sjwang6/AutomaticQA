@@ -112,6 +112,23 @@ public class UserController {
 	}
 
 	/**
+	 * 修改密码
+	 * <p>
+	 * <code>UpdatePassword</code>
+	 * </p>
+	 * 
+	 * @author sjwang6
+	 * @param request
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping(value = "toUpdatePwd")
+	public String UpdatePassword(HttpServletRequest request, Map<String, String> map) {
+		// String userPassword = request.getParameter("userPassword");
+		return null;
+	}
+
+	/**
 	 * 注册信息
 	 * <p>
 	 * <code>RegisterUser</code>
@@ -123,6 +140,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/toRegister")
 	public String RegisterUser(HttpServletRequest request) {
+		System.out.println("=====这是注册========");
 		String userName = request.getParameter("user");
 		String userPassword = request.getParameter("passwd");
 		int userSex = StringUtils.StringCastInteger(request.getParameter("radio"));
@@ -140,6 +158,8 @@ public class UserController {
 		user.setUserAddress(userAddress);
 		user.setUserAge(userAge);
 		// insert into DB
+		userService.addUser(user);
+		logger.info("将用户:::" + userName + ":::插入数据库！");
 		return "login";
 	}
 
@@ -158,13 +178,15 @@ public class UserController {
 		String userName = request.getParameter("userName");
 		List<User> ulist = userService.findUserByName(userName);
 		try {
-			if (ulist == null) {
+			if (ulist.size() == 0) {
 				ResponseUtil.write(response, 1);
+				logger.info("用户：：：" + userName + ":::不存在，可以添加！");
 			} else {
 				ResponseUtil.write(response, 0);
+				logger.info("用户：：：" + userName + ":::已存在，不可以添加！");
 			}
 		} catch (Exception e) {
-			logger.error("ResponseUtil.write method had a error", e);
+			logger.error("ResponseUtil.write’s method had a error", e);
 			e.printStackTrace();
 		}
 	}

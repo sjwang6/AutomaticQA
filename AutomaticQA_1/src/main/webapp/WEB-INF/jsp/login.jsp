@@ -104,7 +104,7 @@
                             <li> 
                                 <label for="brith" class="input-tips2">出生日期：</label> 
                                 <div class="inputOuter2"> 
-                                    <input type="text" id="brith" name="brith"/>
+                                    <input type="text" id="brith" name="brith" onblur="checkBrith();"/>
                                 </div> 
                             </li>  
                             <li> 
